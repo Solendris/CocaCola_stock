@@ -1,0 +1,6 @@
+Co zostało zrobione:
+1. Pobrano dane źródłowe z serwisu Kaggle z użyciem ich API.
+2. Zaimportowano do projektu plik "KO_1919-09-06_2025-05-12", który okazał się nie być w zadowalającym stanie.
+3. Wykonano wstępną analizę, gdzie stwierdzono:
+    - brak prawidłowych nazw kolumn
+    -
