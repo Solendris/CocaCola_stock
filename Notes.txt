@@ -1,6 +1,26 @@
 Co zostało zrobione:
 1. Pobrano dane źródłowe z serwisu Kaggle z użyciem ich API.
-2. Zaimportowano do projektu plik "KO_1919-09-06_2025-05-12", który okazał się nie być w zadowalającym stanie.
-3. Wykonano wstępną analizę, gdzie stwierdzono:
-    - brak prawidłowych nazw kolumn
-    -
+2. Na podstawie pliku "KO_1919-09-06_2025-05-12" utworzono bazę "project_database", gdzie umieszczono dane w tabeli
+ 'CocaCola_stock_date'.
+    - plik nie miał poprawnej struktury danych, dlatego należało utworzyć nazwy kolumn na podstawie pierwszego wiersza
+     danych, pominąć drugi wiersz (który nie zawierał przydatnych informacji) i zaimportować dane od 3 wiersza
+3. Wykonano wstępną analizę, gdzie sprawdzono czy:
+    - są prawidłowe nazwy kolumn,
+    - występują wartości typu null,
+    - występują duplikaty w dacie.
+4. Dokonano modyfikacji bazy danych: <- obecny krok
+    - dla kolumn open, high, low, close adj_close ogarniczono wyniki do piątej pozycji po przecinku,
+    - zmieniono typ danych:
+        date: text -> int
+        open: text -> real
+        high: text -> real
+        low: text -> real
+        close: text -> real
+        adj_close: text -> real
+        volume: text -> int
+5. Przeprowadzono analizę danych, gdzie pokazuję:
+    - Liniowy wykres ceny w czasie (matplotlib, plotly)
+    - Ruchome średnie (np. 50-dniowa, 200-dniowa)
+    - Histogram zwrotów dziennych
+    - Boxploty zwrotów w podziale na dekady
+    - Korelacja między zmiennymi (heatmapa)
