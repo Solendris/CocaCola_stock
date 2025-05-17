@@ -8,19 +8,18 @@ Co zostało zrobione:
     - są prawidłowe nazwy kolumn,
     - występują wartości typu null,
     - występują duplikaty w dacie.
-4. Dokonano modyfikacji bazy danych: <- obecny krok
-    - dla kolumn open, high, low, close adj_close ogarniczono wyniki do piątej pozycji po przecinku,
+4. Dokonano modyfikacji bazy danych:
+    - dla kolumn open, high, low, close adj_close ograniczono wyniki do piątej pozycji po przecinku,
     - zmieniono typ danych:
-        date: text -> int
         open: text -> real
         high: text -> real
         low: text -> real
         close: text -> real
         adj_close: text -> real
         volume: text -> int
-5. Przeprowadzono analizę danych, gdzie pokazuję:
+5. Przeprowadzono analizę danych, gdzie pokazuję: <- obecny krok
     - Liniowy wykres ceny w czasie (matplotlib, plotly)
     - Ruchome średnie (np. 50-dniowa, 200-dniowa)
-    - Histogram zwrotów dziennych
+    - Histogram zwrotów rocznych
     - Boxploty zwrotów w podziale na dekady
     - Korelacja między zmiennymi (heatmapa)
