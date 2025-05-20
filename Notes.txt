@@ -17,13 +17,17 @@ Co zostało zrobione:
         close: text -> real
         adj_close: text -> real
         volume: text -> int
-5. Przeprowadzono analizę danych, gdzie pokazuję: <- obecny krok
+5. Przeprowadzono analizę danych, gdzie pokazuję:
     - Liniowy wykres ceny w czasie (matplotlib, plotly)
     - Wykres średnich ruchomych
     - Korelacja między zmiennymi (heatmapa)
 
-6. TO DO:
-    - Przypomnieć sobie wartościowe zagadnienia ze statystyki, które powinienem uwzględnić,
+6. TO DO: <- obecny krok
+    - przypomnieć sobie wartościowe zagadnienia ze statystyki, które powinienem uwzględnić,
     - spróbować nanieść na wykres ważne wydarzenia z ostatnich 100 lat i znaleźć korelację między nimi a cenami akcji,
-    - jakieś szkolenie si na tych danych? Próba przewidzenia przyszłości?
+    - jakieś szkolenie Sztucznej Inteligencji na tych danych? Próba przewidzenia przyszłości?
+    - Wykres przedstawiajacy ceny akcji coca coli z ostatnich 10 lat. Naniesc 10 wykresow na jedna plaszczyzne
+     i sprobowac znalezc cechy wspolne. Tak samo dla wszystkich miesiecy w roku. <- done
+    - zmodyfikowac kod tak, by kazdy graf byl w innej klasie lub metodzie (wczesniej rozeznac, czy ma to sens)
+    - zmodyfikowac wykresy tak, by mozna bylo bezproblemowo przełączać się strzałkami pomiędzy nimi,
     - określić co te dane tak naprawdę wnoszą. Jaki był cel analizy? Co udało się dowieść? Co zyskaliśmy?
