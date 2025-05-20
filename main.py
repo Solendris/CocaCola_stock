@@ -162,3 +162,5 @@ for idx, year_group in enumerate(chunks):
     plt.show()
 
 ###########################################################################################
+
+print("here will be new, creative plot with abillity to switch views with arrows")
