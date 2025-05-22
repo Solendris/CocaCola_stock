@@ -124,10 +124,12 @@ for year_group in chunks:
 # === INTERAKTYWNA NAWIGACJA STRZAŁKAMI ===
 current = [0]
 
+
 def show_current():
     fig = figures[current[0]]
     fig.canvas.manager.set_window_title(f"Wykres {current[0] + 1} z {len(figures)}")
     plt.show()
+
 
 def on_key(event):
     if event.key == 'right':
