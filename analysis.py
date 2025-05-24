@@ -18,3 +18,4 @@ def analize():
     # Test normalności
     stat, p = normaltest(df['return'].dropna())
     print(f'Statystyka: {stat}, p-value: {p}')  # p < 0.05 → rozkład NIE jest normalny
+
