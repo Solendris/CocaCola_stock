@@ -7,6 +7,26 @@
 # print("Path to dataset files:", path)
 #######################################################################################################################
 import plots
+import keyboard
+import time
+
+
+def main():
+    print("Press [1] to show plots")
+    print("Press [2] to show calculations")
+    print("Press [Esc] to exit")
+    while True:
+        if keyboard.is_pressed('1'):
+            print("Showing plots")
+            plots.all_plots()
+            time.sleep(1)
+        elif keyboard.is_pressed('2'):
+            print("tmp")
+            time.sleep(1)
+        elif keyboard.is_pressed('esc'):
+            print('Finished')
+            break
+
 
 if __name__ == '__main__':
-    plots.all_plots()
+    main()
