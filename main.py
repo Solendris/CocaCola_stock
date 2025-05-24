@@ -7,6 +7,7 @@
 # print("Path to dataset files:", path)
 #######################################################################################################################
 import plots
+import analysis
 import keyboard
 import time
 
@@ -21,7 +22,8 @@ def main():
             plots.all_plots()
             time.sleep(1)
         elif keyboard.is_pressed('2'):
-            print("tmp")
+            print("Performing analysis")
+            analysis.analize()
             time.sleep(1)
         elif keyboard.is_pressed('esc'):
             print('Finished')
