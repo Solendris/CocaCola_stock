@@ -1,33 +1,6 @@
-Co zostało zrobione:
-1. Pobrano dane źródłowe z serwisu Kaggle z użyciem ich API.
-2. Na podstawie pliku "KO_1919-09-06_2025-05-12" utworzono bazę "project_database", gdzie umieszczono dane w tabeli
- 'CocaCola_stock_date'.
-    - plik nie miał poprawnej struktury danych, dlatego należało utworzyć nazwy kolumn na podstawie pierwszego wiersza
-     danych, pominąć drugi wiersz (który nie zawierał przydatnych informacji) i zaimportować dane od 3 wiersza
-3. Wykonano wstępną analizę, gdzie sprawdzono czy:
-    - są prawidłowe nazwy kolumn,
-    - występują wartości typu null,
-    - występują duplikaty w dacie.
-4. Dokonano modyfikacji bazy danych:
-    - dla kolumn open, high, low, close adj_close ograniczono wyniki do piątej pozycji po przecinku,
-    - zmieniono typ danych:
-        open: text -> real
-        high: text -> real
-        low: text -> real
-        close: text -> real
-        adj_close: text -> real
-        volume: text -> int
-5. Przeprowadzono analizę danych, gdzie pokazuję:
-    - Liniowy wykres ceny w czasie (matplotlib, plotly)
-    - Wykres średnich ruchomych
-    - Korelacja między zmiennymi (heatmapa)
+Niestety ten kod wymaga poprawek:
+    - przełączanie wykresów z użyciem strzałek nie działa,
+    - kod nie jest zadowalający,
+    - stwierdzono, że lepszym rozwiązaniem jest wyświetlanie wykresów jeden po drugim niż wszystkie na raz.
 
-6. TO DO: <- obecny krok
-    - przypomnieć sobie wartościowe zagadnienia ze statystyki, które powinienem uwzględnić,
-    - spróbować nanieść na wykres ważne wydarzenia z ostatnich 100 lat i znaleźć korelację między nimi a cenami akcji,
-    - jakieś szkolenie Sztucznej Inteligencji na tych danych? Próba przewidzenia przyszłości?
-    - Wykres przedstawiajacy ceny akcji coca coli z ostatnich 10 lat. Naniesc 10 wykresow na jedna plaszczyzne
-     i sprobowac znalezc cechy wspolne. Tak samo dla wszystkich miesiecy w roku. <- done
-    - zmodyfikowac kod tak, by kazdy graf byl w innej klasie lub metodzie (wczesniej rozeznac, czy ma to sens)
-    - zmodyfikowac wykresy tak, by mozna bylo bezproblemowo przełączać się strzałkami pomiędzy nimi,
-    - określić co te dane tak naprawdę wnoszą. Jaki był cel analizy? Co udało się dowieść? Co zyskaliśmy?
+Gałąź jest wstrzymana.

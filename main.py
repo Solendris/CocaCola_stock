@@ -9,6 +9,7 @@
 
 import pandas as pd
 import matplotlib.pyplot as plt
+from matplotlib.backend_bases import Event
 import seaborn as sns
 import numpy as np
 import matplotlib
@@ -104,8 +105,9 @@ figures.append(fig6)
 
 # === 7–9. 3 grupy po 21 lat ===
 all_years = sorted(df['Year'].dropna().unique())
+cmap = plt.get_cmap("viridis")
 chunks = [all_years[i:i + 21] for i in range(0, len(all_years), 21)]
-colors = plt.cm.viridis(np.linspace(0, 1, 21))
+colors = cmap(np.linspace(0, 1, 21))
 
 for year_group in chunks:
     fig, ax = plt.subplots(figsize=(14, 6))
@@ -131,15 +133,16 @@ def show_current():
     plt.show()
 
 
-def on_key(event):
-    if event.key == 'right':
-        current[0] = (current[0] + 1) % len(figures)
-        plt.close('all')
-        show_current()
-    elif event.key == 'left':
-        current[0] = (current[0] - 1) % len(figures)
-        plt.close('all')
-        show_current()
+def on_key(event: Event) -> None:
+    if hasattr(event, "key") and event.key:
+        if event.key == 'right':
+            current[0] = (current[0] + 1) % len(figures)
+            plt.close('all')
+            show_current()
+        elif event.key == 'left':
+            current[0] = (current[0] - 1) % len(figures)
+            plt.close('all')
+            show_current()
 
 
 # Podłącz klawiaturę do pierwszej figury
