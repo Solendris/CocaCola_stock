@@ -1,5 +1,4 @@
 import pandas as pd
-
 df = pd.read_csv('cocacola_stock_data.csv')
 
 
@@ -16,11 +15,13 @@ def analize():
     print(f"Standard deviation for adjusted closing price: {standard_deviation_price:.2f}")
     standard_deviation_volume = df['adj_close'].std()
     print(f"Standard deviation for volume: {standard_deviation_volume:.2f}")
-
-
-# Odchylenie standardowe	Miara zmienności (ryzyka)	df['close'].std()
-# Zwroty dzienne (%)	Zmiana ceny dzień do dnia	df['return'] = df['close'].pct_change()
-# Wolumen obrotu	Aktywność na rynku	df['volume'].mean()
-# Korelacje	Współzależność np. open z close	df.corr()
-# Średnie kroczące (MA)	Trendy w czasie	df['MA50'] = df['close'].rolling(50).mean()
-# Zmienność (rolling std)	Ruchome odchylenie	df['volatility'] = df['return'].rolling(30).std()
+    # Zwroty dzienne(średni %)
+    daily_returns_pct = df['adj_close'].pct_change()
+    daily_returns_mean = daily_returns_pct.mean()
+    print(f"Daily return % mean for volume: {daily_returns_mean:.2f}")
+    # Wolumen obrotu
+    volume_mean = df['volume'].mean()
+    print(f"Daily volume mean: {volume_mean:.0f}")
+    # Korelacje
+    close_adjclose_corr = df['adj_close'].corr(df['adj_close'], method='pearson')
+    print(f"Corelation: {close_adjclose_corr}")
