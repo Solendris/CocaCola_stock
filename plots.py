@@ -2,6 +2,7 @@ import pandas as pd
 import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.cm as cm
 import matplotlib
 
 matplotlib.use('TkAgg')
@@ -71,19 +72,28 @@ def all_plots():
     plt.show()
 
     # === 4. 10 sub-wykresów rocznych ===
+
     selected_years = sorted(df['Year'].dropna().unique())[-10:]
-    fig, axes = plt.subplots(nrows=5, ncols=2, figsize=(16, 18))
+    n = len(selected_years)
+    cols = 5
+    rows = 2
+    fig, axes = plt.subplots(nrows=rows, ncols=cols, figsize=(18, 6 * rows))
     axes = axes.flatten()
+    colors = cm.get_cmap('tab10').colors
+
     for i, year in enumerate(selected_years):
         monthly = df[df['Year'] == year].groupby('Month')['adj_close'].mean()
-        axes[i].plot(monthly.index, monthly.values, marker='o')
+        axes[i].plot(monthly.index, monthly.values, marker='o', color=colors[i])
         axes[i].set_title(f"Średnia cena miesięczna - {year}")
         axes[i].set_xlabel("Miesiąc")
         axes[i].set_ylabel("Średnia Adj Close")
         axes[i].set_xticks(range(1, 13))
         axes[i].grid(True)
+    # Usuń nadmiarowe puste wykresy
     for j in range(i + 1, len(axes)):
         fig.delaxes(axes[j])
+    # Zwiększ odstępy między wykresami
+    plt.subplots_adjust(hspace=0.4, wspace=0.8)
     plt.tight_layout()
     plt.show()
 

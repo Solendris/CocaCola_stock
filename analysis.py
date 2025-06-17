@@ -2,7 +2,7 @@ import pandas as pd
 df = pd.read_csv('cocacola_stock_data.csv')
 
 
-def analize():
+def analise():
     # Średnie wartości
     open_mean = df['open'].mean()
     print(f"Opening price mean: {open_mean:.2f}")

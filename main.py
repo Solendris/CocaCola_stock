@@ -23,7 +23,7 @@ def main():
             time.sleep(1)
         elif keyboard.is_pressed('2'):
             print("Performing analysis")
-            analysis.analize()
+            analysis.analise()
             time.sleep(1)
         elif keyboard.is_pressed('esc'):
             print('Finished')
