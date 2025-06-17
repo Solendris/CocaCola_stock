@@ -16,18 +16,21 @@ def main():
     print("Press [1] to show plots")
     print("Press [2] to show calculations")
     print("Press [Esc] to exit")
-    while True:
-        if keyboard.is_pressed('1'):
-            print("Showing plots")
-            plots.all_plots()
-            time.sleep(1)
-        elif keyboard.is_pressed('2'):
-            print("Performing analysis")
-            analysis.analise()
-            time.sleep(1)
-        elif keyboard.is_pressed('esc'):
-            print('Finished')
-            break
+    try:
+        while True:
+            if keyboard.is_pressed('1'):
+                print("\nShowing plots")
+                plots.all_plots()
+                time.sleep(1)
+            elif keyboard.is_pressed('2'):
+                print("\nPerforming analysis")
+                analysis.analise()
+                time.sleep(1)
+            elif keyboard.is_pressed('esc'):
+                print("\nFinished")
+                break
+    except KeyboardInterrupt:
+        print("\nProgram interrupted by user.")
 
 
 if __name__ == '__main__':
