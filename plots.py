@@ -4,8 +4,19 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import matplotlib
+import os
 
 matplotlib.use('TkAgg')
+os.makedirs("plots", exist_ok=True)
+
+
+def save_figure(title, fig=None):
+    """Save current matplotlib figure with a sanitized title as filename."""
+    filename = f"plots/{title.replace(' ', '_').replace('-', '_')}.png"
+    if fig:
+        fig.savefig(filename, bbox_inches='tight')
+    else:
+        plt.savefig(filename, bbox_inches='tight')
 
 
 def plot_monthly_lines(df, years, title, legend_loc, bbox_anchor, tight_rect=None, col=1):
@@ -40,6 +51,7 @@ def all_plots():
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
+    save_figure("Stock Price Over Time")
     plt.show()
 
     # === Moving Averages ===
@@ -56,6 +68,7 @@ def all_plots():
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
+    save_figure("Price and Moving Averages")
     plt.show()
 
     # === Correlation matrix ===
@@ -66,6 +79,7 @@ def all_plots():
     sns.heatmap(correlation, annot=True, cmap="coolwarm", fmt=".2f")
     plt.title("Correlation Matrix")
     plt.tight_layout()
+    save_figure("Correlation Matrix")
     plt.show()
 
     # === 10 yearly subplots ===
@@ -90,6 +104,7 @@ def all_plots():
 
     plt.subplots_adjust(hspace=0.4, wspace=0.4)
     plt.tight_layout()
+    fig.savefig("plots/Monthly_Avg_Price_Subplots.png", bbox_inches='tight')
     plt.show()
 
     # === 10 years on one plot ===
@@ -124,13 +139,15 @@ def all_plots():
         for i, year in enumerate(year_group):
             monthly = df[df['Year'] == year].groupby('Month')['adj_close'].mean()
             plt.plot(monthly.index, monthly.values, marker='o', label=str(year), color=colors[i])
-        plt.title(f"Monthly Avg Price – Years {year_group[0]}–{year_group[-1]}")
+        title = f"Monthly Avg Price – Years {year_group[0]}–{year_group[-1]}"
+        plt.title(title)
         plt.xlabel("Month")
         plt.ylabel("Average Adj Close")
         plt.xticks(range(1, 13))
         plt.grid(True)
         plt.legend(title="Year", loc='center left', bbox_to_anchor=(1.01, 0.5), ncol=1)
         plt.tight_layout(rect=(0, 0, 0.85, 1))
+        save_figure(title)
         plt.show()
 
     # === Rolling Volatility ===
@@ -145,4 +162,8 @@ def all_plots():
     plt.grid(True)
     plt.gca().set_facecolor("white")
     plt.tight_layout()
+    save_figure("30-Day Rolling Standard Deviation of Adj Close Price")
     plt.show()
+
+
+#to do: save plots drawed in lines 110-179 to folder

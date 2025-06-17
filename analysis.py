@@ -24,3 +24,5 @@ def analise():
     # Correlation
     correlation = df['close'].corr(df['adj_close'], method='pearson')
     print(f"Correlation between close and adj_close: {correlation:.2f}")
+
+#to do: save results to file
