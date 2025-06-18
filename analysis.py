@@ -1,5 +1,8 @@
 import pandas as pd
+import os
+import json
 df = pd.read_csv('cocacola_stock_data.csv')
+os.makedirs("analysis", exist_ok=True)
 
 
 def analise():
@@ -25,4 +28,17 @@ def analise():
     correlation = df['close'].corr(df['adj_close'], method='pearson')
     print(f"Correlation between close and adj_close: {correlation:.2f}")
 
-#to do: save results to file
+    # === Save analysis results ===
+    results = {
+        "open_mean": round(df['open'].mean(), 2),
+        "close_mean": round(df['close'].mean(), 2),
+        "adj_close_mean": round(df['adj_close'].mean(), 2),
+        "std_adj_close": round(df['adj_close'].std(), 2),
+        "std_volume": round(df['volume'].std(), 2),
+        "daily_return_mean_pct": round(df['adj_close'].pct_change().mean() * 100, 2),
+        "volume_mean": round(df['volume'].mean(), 0),
+        "close_adj_corr": round(df['close'].corr(df['adj_close']), 2)
+    }
+
+    with open("analysis/results.json", "w") as f:
+        json.dump(results, f, indent=4)

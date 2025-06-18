@@ -32,6 +32,7 @@ def plot_monthly_lines(df, years, title, legend_loc, bbox_anchor, tight_rect=Non
     ax.grid(True)
     ax.legend(title="Year", loc=legend_loc, bbox_to_anchor=bbox_anchor, ncol=col)
     fig.tight_layout(rect=tight_rect if tight_rect else None)
+    save_figure(title)
     plt.show()
 
 
@@ -111,21 +112,21 @@ def all_plots():
     plot_monthly_lines(
         df=df,
         years=selected_years,
-        title="Monthly Avg Price – Last 10 Years",
+        title="Monthly Avg Price - Last 10 Years",
         legend_loc='upper left',
         bbox_anchor=(1.02, 1)
     )
 
-    # === All years on one plot ===
+    # === 63 years on one plot ===
     selected_years_all = sorted(df['Year'].dropna().unique())[-63:]
     plot_monthly_lines(
         df=df,
         years=selected_years_all,
-        title="Monthly Avg Price – Last 63 Years",
+        title="Monthly Avg Price - Last 63 Years",
         legend_loc='center left',
         bbox_anchor=(1.01, 0.5),
         tight_rect=(0, 0, 0.75, 1),
-        col=2
+        col=2,
     )
 
     # === 3 groups of 21 years ===
@@ -139,7 +140,7 @@ def all_plots():
         for i, year in enumerate(year_group):
             monthly = df[df['Year'] == year].groupby('Month')['adj_close'].mean()
             plt.plot(monthly.index, monthly.values, marker='o', label=str(year), color=colors[i])
-        title = f"Monthly Avg Price – Years {year_group[0]}–{year_group[-1]}"
+        title = f"Monthly Avg Price - Years {year_group[0]}–{year_group[-1]}"
         plt.title(title)
         plt.xlabel("Month")
         plt.ylabel("Average Adj Close")
@@ -164,6 +165,3 @@ def all_plots():
     plt.tight_layout()
     save_figure("30-Day Rolling Standard Deviation of Adj Close Price")
     plt.show()
-
-
-#to do: save plots drawed in lines 110-179 to folder
