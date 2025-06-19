@@ -24,12 +24,14 @@ This project offers a comprehensive analysis of historical stock data for **The 
 
 ## 🧰 Project Structure
 
-- KO_1919-09-06_2025-05-12.csv # formated Coca-Cola stock market data
-- main.py # main script to run
-- plots.py # Script for generating visualizations
-- analysis.py # Script for statistical analysis
-- plots/ # Output charts and plots
-- analysis/ # statistical results
+```
+├── KO_1919-09-06_2025-05-12.csv # formated Coca-Cola stock market data
+├── main.py # main script to run
+├── plots.py # Script for generating visualizations
+├── analysis.py # Script for statistical analysis
+├── plots/ # Output charts and plots
+└── analysis/ # statistical results
+```
 
 ---
 
@@ -88,12 +90,12 @@ Scripts used:
 #### 📐 Summary Statistics
 Key indicators calculated from the dataset:
 
-- Mean opening price: **$18.53**  
-- Mean closing price: **$18.54**  
-- Mean adjusted close: **$12.92**  
-- Std. deviation (adj close): **$16.79**  
+- Mean opening price: **18.53**  
+- Mean closing price: **18.54**  
+- Mean adjusted close: **12.92**  
+- Std. deviation (adj close): **16.79**  
 - Std. deviation (volume): **7,957,798.46**  
-- Mean daily return (%): **0.06%**  
+- Mean daily return (%): **0.06**  
 - Mean trading volume: **9,346,883**  
 - Correlation between close and adj_close: **0.97**
 
