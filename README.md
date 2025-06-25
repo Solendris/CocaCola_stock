@@ -1,10 +1,10 @@
-# 📈 Coca-Cola Stock Data Analysis (1962–2025)
+# Coca-Cola Stock Data Analysis (1962–2025)
 
 **Portfolio Project for Data Analyst Role**
 
 ---
 
-## 📝 Project Overview
+## Project Overview
 
 This project offers a comprehensive analysis of historical stock data for **The Coca-Cola Company**, covering the period from **September 6, 1962** to **May 12, 2025**. The goal is to:
 
@@ -14,7 +14,7 @@ This project offers a comprehensive analysis of historical stock data for **The 
 
 ---
 
-## 📊 Data Source
+## Data Source
 
 - Dataset: `KO_1919-09-06_2025-05-12.csv`
   - Source: downloaded from **Kaggle**
@@ -22,7 +22,7 @@ This project offers a comprehensive analysis of historical stock data for **The 
 
 ---
 
-## 🧰 Project Structure
+## Project Structure
 
 ```
 ├── KO_1919-09-06_2025-05-12.csv # formated Coca-Cola stock market data
@@ -35,16 +35,16 @@ This project offers a comprehensive analysis of historical stock data for **The 
 
 ---
 
-## 🛠️ Analysis Workflow
+## Analysis Workflow
 
 The project follows a structured and modular data analysis process:
 
-### ✅ 1. Data Acquisition  
+### 1. Data Acquisition  
 - Raw stock data was downloaded from **Kaggle** using their **official API**.
 
 ---
 
-### 🗃️ 2. Database Creation  
+### 2. Database Creation  
 - A local PostgreSQL database `project_database` was created from the file `KO_1919-09-06_2025-05-12.csv`.  
 - The data was imported into a table called `CocaCola_stock_date`.
 
@@ -55,16 +55,16 @@ The project follows a structured and modular data analysis process:
 
 ---
 
-### 🧼 3. Data Validation & Preprocessing  
+### 3. Data Validation & Preprocessing  
 A preliminary check ensured data quality:
 
-- ✅ Validated column headers  
-- ✅ Checked for missing (`NULL`) values  
-- ✅ Detected duplicates in the `date` column  
+- Validated column headers  
+- Checked for missing (`NULL`) values  
+- Detected duplicates in the `date` column  
 
 ---
 
-### 🔧 4. Data Cleaning & Transformation  
+### 4. Data Cleaning & Transformation  
 Database values and types were adjusted for analysis:
 
 | Column       | Old Type | New Type | Transformation                     |
@@ -78,16 +78,16 @@ Database values and types were adjusted for analysis:
 
 ---
 
-### 📊 5. Statistical Analysis & Visualization  
+### 5. Statistical Analysis & Visualization  
 
 Scripts used:
 - `main.py`: Master script that runs the full pipeline (`analysis.py` + `plots.py`)  
 - `analysis.py`: Computes descriptive statistics and prepares analysis results  
 - `plots.py`: Creates visualizations using `Matplotlib`, `Seaborn`, and `Plotly`
 
-**📈 Included analyses and outputs:**
+**Included analyses and outputs:**
 
-#### 📐 Summary Statistics
+#### Summary Statistics
 Key indicators calculated from the dataset:
 
 - Mean opening price: **18.53**  
@@ -99,24 +99,24 @@ Key indicators calculated from the dataset:
 - Mean trading volume: **9,346,883**  
 - Correlation between close and adj_close: **0.97**
 
-> 📄 **The full statistical report is available in `report.pdf`**
+> **The full statistical report is available in `report.pdf`**
 
 ---
 
-#### 📊 Visualizations:
-- 📈 **Line plot** of stock prices over time
-- 🔁 **50-day and 200-day moving averages**
-- 🔥 **Heatmap** showing correlations between financial indicators
-- 📉 **30-day rolling standard deviation** of adjusted close (volatility)
-- 📅 **Monthly average prices**:
+#### Visualizations:
+- **Line plot** of stock prices over time
+- **50-day and 200-day moving averages**
+- **Heatmap** showing correlations between financial indicators
+- **30-day rolling standard deviation** of adjusted close (volatility)
+- **Monthly average prices**:
   - 10 most recent years (as subplots)
   - Last 63 years (overlayed)
   - 3 grouped charts (21 years per group)
-- 🎨 Consistent visual styling with custom `save_figure()` utility
+- Consistent visual styling with custom `save_figure()` utility
 
-📂 All charts are saved in the `plots/` directory  
-📂 Calculated metrics and exports are saved in `analysis/`  
-📄 Final summary delivered in `report.pdf`
+All charts are saved in the `plots/` directory  
+Calculated metrics and exports are saved in `analysis/`  
+Final summary delivered in `report.pdf`
 
 ---
 
